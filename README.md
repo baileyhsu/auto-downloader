@@ -4,15 +4,18 @@ This app automates the tedious downloading process from the ArXiv.org.
 
 
 ## Background 
-We study the quantum dynamics of a nonrelativistic neutral particle with spin in inhomogeneous external magnetic fields. We first consider fields with one-dimensional inhomogeneities, both unphysical and physical, and construct the corresponding analytic propagators. We then consider fields with two-dimensional inhomogeneities and develop an appropriate numerical propagation method. We propagate initial states exhibiting different degrees of space localization and various initial spin configurations, including both pure and mixed spin states. We study the evolution of their spin densities and identify characteristic features of spin density dynamics, such as the spatial separation of spin components, and spin localization or accumulation. We compare our approach and our results with the coverage of the Stern-Gerlach effect in the literature, and we focus on nonstandard Stern-Gerlach outcomes, such as radial separation, spin focusing, spin oscillation, and spin flipping.I
-
-## Simulation
-In two matlab files, I simulate the Stern-Gerlach effect with or without a simple harmonic oscillator potential imposed on the device. In the code, we use propogator method from quantum mechanics and the Trotter's formula (as this involves noncommutativity of the Pauli matrices in spin space) to evolve the wave function.
+As it is a common practice for all physicists to read most up-to-date papers on ArXiv, I find it tedious to go through different pages and to download the papers and then to rename the paper (just in case later I totally forgot what this pdf is about), and to organize the file folders. Therefore I come up with this idea to automate the above 4 steps using Selenium and Python. 
 
 
-## System Requirement
-You can run this file on Mathematica 9.0 or higher on either PC or Mac with at least 2GB of RAM.
 
+## The Flow
+(1)The app will first create a folder with the name specified as today's date.
+(2)Then it will go through the first page of computational physics section and get all the download links
+(3)At the same time, it will also get all the paper names associated with each link.
+(4)use chromewebdriver to download given the links, and then change the name of each file to the title of the paper. The default directory is set in the chrome options.
+(5)once everything is done, I move the whole folder to my document under physics papers.
+and voila!
 
-## Publication
-- ["Stern-Gerlach dynamics with quantum propagators"](http://journals.aps.org/pra/abstract/10.1103/PhysRevA.83.012109) - *Bailey Hsu, Manuel Berrondo, and Jean-Francois S Van Huele*
+## Note
+This is a good practice for me with Selenium, and definitely there are lots of other options to explore (for example, to upload the files to the cloud, to gather papers from more than one source, such as PRL, PRB, SCIENCE, or Nature). I will definitely think about future revisions.
+
